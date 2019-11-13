@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="flexible" content="initial-dpr=2" />
+    <title>扩扩帮</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body>
+
+    <div id="wrap">
+        <div id="pc">
+            <header class="header">
+                <img class="logo" src="k15.png">
+            </header>
+            <img src="k8.png">
+            <img src="k9.png">
+            <img src="k10.png">
+        </div>
+        <div id='mobile'>
+            <header class="header">
+                <img class="logo" src="k15.png">
+            </header>
+            <img src="k11.png">
+            <img src="k12.png">
+            <img src="k13.png">
+        </div>
+        <footer class="footer">
+            <div>
+                <div class="wx_title">小程序码</div>
+                <div>
+                    <img class="wx_img" src="k14.png">
+                </div>
+            </div>
+            <div>
+                <div class="wx">微信号：anyouxiaoquan</div>
+                <div class="icp">京ICP备10214630</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+            var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+            var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+            var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+            var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+            var bIsAndroid = sUserAgent.match(/android/i) == "android";
+            var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+            var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+            var ua = navigator.userAgent.toLowerCase();
+            if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                console.log("mobile")
+                $('#wrap').attr('class', 'mobile')
+            } else {
+                console.log("pc")
+                $('#wrap').attr('class', 'pc')
+            }
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        window.onload = function () {
+            browserRedirect();
+        }
+        window.onresize = function () {
+            browserRedirect();
+        }
+    </script>
+
+</body>
+
+</html>
