@@ -11,8 +11,8 @@ body {
   vertical-align: middle;
 }
 #wrap .footer {
-  height: 2.96296296rem;
   display: flex;
+  height: 2.96296296rem;
   justify-content: space-around;
   align-items: center;
   background-color: #fff;
