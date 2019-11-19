@@ -8,6 +8,7 @@
     <meta name="flexible" content="initial-dpr=2" />
     <title>扩扩帮</title>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./tool.js"></script>
     <!-- 处理rem -->
     <script>
         !function () {
@@ -101,46 +102,41 @@
 <body>
 
     <div id="wrap">
+        <header class="header">
+            <img class="logo" src="k15.png">
+            <div id="contact">
+                <button data-clipboard-action="copy" data-clipboard-target="#target" id="copy_btn">联系我们</button>
+                <div id="target">
+                    <div>微信号：18978904780</div>
+                    <div>电话号码：189 7890 4780</div>
+                </div>
+            </div>
+        </header>
         <div id="pc">
-            <header class="header">
-                <img class="logo" src="k15.png">
-            </header>
             <img src="k8.jpg">
             <img src="k9.jpg">
             <img src="k10.jpg">
-            <footer class="footer">
-                <div>
-                    <div class="wx_title">小程序码</div>
-                    <div>
-                        <img class="wx_img" src="k14.png">
-                    </div>
-                </div>
-                <div>
-                    <div class="wx">微信号：anyouxiaoquan</div>
-                    <div class="icp">京ICP备10214630</div>
-                </div>
-            </footer>
         </div>
         <div id='mobile'>
-            <header class="header">
-                <img class="logo" src="k15.png">
-            </header>
             <img src="k11.jpg">
             <img src="k12.jpg">
             <img src="k13.jpg">
-            <footer class="footer">
-                <div>
-                    <div class="wx_title">小程序码</div>
-                    <div>
-                        <img class="wx_img" src="k14.png">
-                    </div>
-                </div>
-                <div>
-                    <div class="wx">微信号：anyouxiaoquan</div>
-                    <div class="icp">京ICP备10214630</div>
-                </div>
-            </footer>
         </div>
+        <footer class="footer">
+            <div class="wx_title">
+                <div>
+                    <img class="wx_img" src="k14.png">
+                </div>
+                <div>
+                    <div>微信扫一扫</div>
+                    <div>体验小程序</div>
+                </div>
+            </div>
+            <div>
+                <div>微信号：anyouxiaoquan</div>
+                <div>京ICP备10214630</div>
+            </div>
+        </footer>
     </div>
     <script>
         function browserRedirect() {
@@ -169,6 +165,14 @@
         }
         window.onload = function () {
             browserRedirect();
+            var clipboard = new Clipboard('#copy_btn');
+            clipboard.on('success', function (e) {
+                alert("联系信息复制成功", 1500);
+                e.clearSelection();
+            });
+            $('#contact').on('click', function () {
+                $('#contact>div').toggleClass('show')
+            })
         }
         window.onresize = function () {
             browserRedirect();
