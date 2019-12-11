@@ -16,7 +16,7 @@ body {
   align-items: center;
   width: 80%;
   margin: 0 auto;
-  padding: 0.37037037rem 0;
+  padding: 0.33333333rem 0;
 }
 #wrap .header button {
   background-color: transparent;
@@ -61,7 +61,7 @@ body {
   display: block!important;
 }
 #wrap .logo {
-  width: 3.33333333rem;
+  width: 2.59259259rem;
   margin: 0;
 }
 #wrap .footer {
@@ -116,9 +116,15 @@ body {
 #pc img {
   margin-bottom: 0.18518519rem;
 }
+#pc > img:last-child {
+  margin: 0;
+}
 #mobile {
   display: none;
 }
 #mobile img {
   margin-bottom: 0.11111111rem;
+}
+#mobile > img:last-child {
+  margin: 0;
 }

@@ -9,6 +9,11 @@
     <title>扩扩帮</title>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="./tool.js"></script>
+    <script type="text/javascript">
+        if (document.location.protocol != "https:") {
+            location.href = location.href.replace(/^http:/, "https:");
+        }
+    </script>
     <!-- 处理rem -->
     <script>
         !function () {
@@ -107,8 +112,8 @@
             <div id="contact">
                 <button data-clipboard-action="copy" data-clipboard-target="#target" id="copy_btn">联系我们</button>
                 <div id="target">
-                    <div>微信号：18978904780</div>
-                    <div>电话号码：189 7890 4780</div>
+                    <div>微信号：anyouxiaoquan</div>
+                    <div>电话：138 1047 6241</div>
                 </div>
             </div>
         </header>
@@ -167,14 +172,15 @@
         }
         window.onload = function () {
             browserRedirect();
-            var clipboard = new Clipboard('#copy_btn');
-            clipboard.on('success', function (e) {
-                alert("联系信息复制成功", 1500);
-                e.clearSelection();
-            });
             $('#contact').on('click', function () {
                 $('#contact>div').toggleClass('show')
             })
+            var clipboard = new Clipboard('#copy_btn');
+            clipboard.on('success', function (e) {
+                $('#contact>div').toggleClass('show')
+                alert("联系信息复制成功", 1500);
+                e.clearSelection();
+            });
         }
         window.onresize = function () {
             browserRedirect();
